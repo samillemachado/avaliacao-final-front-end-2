@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap');
+
+:root {
+  --cor0: #ffffff;
+  --cor1: #d9d9d9;
+  --cor2: #C0D904;
+  --cor3: #F2E74B;
+  --cor4: #FD9999;
+  --cor5: #F25C05;
+}
+ 
+* {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  font-family: 'Montserrat', sans-serif;  
+}
+
+.imagem-fundo-index {
+  background-image: url(../images/capa90.jpg);
+  background-size: contain;
+  opacity: 100%;
+}
+
+.box-login,
+.box-signup {
+  background-color: #ffffff10;
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  animation: fade-in 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+.titulo {
+  color: var(--cor0);
+  font-weight: bold;
+  text-decoration: none;
+  text-shadow: 0.5px 0.5px 2px rgb(106, 106, 106)
+}
+
+button.btn-g,
+input.btn-g {
+  background-color: var(--cor3);
+  border: none;
+  border-radius: 5px;
+  color: var(--cor0); 
+  font: normal normal lighter 1em Helvetica, sans-serif; 
+  cursor: pointer;
+  text-shadow: 0.5px 0.5px 2px rgb(106, 106, 106) 
+}
+
+button.btn-g:hover,
+input.btn-g:hover {
+  background-color: var(--cor5);
+  color: var(--cor0); 
+}
+
+button.btn-g:active,
+input.btn-g:active {
+  color: var(--cor0); 
+  animation: shadow-drop-2-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both; 
+}
+
+::placeholder {
+  font-weight: lighter;
+  font-size: 0.8rem;
+}
+
+#btn-criar,
+#btn-voltar-login {
+  font-weight: lighter;
+  font-size: 0.8rem;
+  background-color: transparent;
+}
+
+#btn-criar:hover,
+#btn-voltar-login:hover {
+  color: var(--cor5);
+  font-weight: bold;
+}
+
+footer a {
+  color: var(--cor5);
+  font-size: 1em;
+}
+footer p {
+  margin: 10px 0;
+}
+
+footer {
+  background-color:var(--cor2);
+  color: #fff;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+}
+
+/* ---------------- CADASTRO ---------------- */
+
+form {
+  text-align: left;
+}
+
+label {
+  color: var(--cor0);
+  font-size: 1rem;   
+}
+
+/* ----------------- PAINEL ----------------- */
+.imagem-fundo-painel {
+  background-image: url(../images/capa75.jpg);
+  background-size: contain;
+  opacity: 100%;
+}
+section.painel {
+  max-width: 100vw;
+  height: 100vh;   
+}
+
+div.painel-dados {
+  height: 80px;
+  padding: 30px;
+  background-color: var(--cor1);
+}
+
+div.painel-recados {
+  padding: 30px;
+  background-color: var(--cor0);
+  display: block;
+  position: relative;
+  justify-content: center;
+}
+
+#titulo-pagina {
+  color: var(--cor5);
+  font: normal normal lighter 1.4em sans-serif;
+  display: block;
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+div.div-logout {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#link-logout {    
+  color: var(--cor5);
+}
+
+#form-painel {
+  display: flex;
+  justify-content:space-between; 
+}
+
+#input-numero-id {
+  width: 100px;   
+  border-radius: 5px;    
+}
+
+#input-desc {
+  width: 400px; 
+  border-radius: 5px;    
+}
+
+#input-det {
+  display: flex;
+  width: 800px;       
+  border-radius: 5px;    
+}
+
+#btn-salvar {
+  width: 100px;
+  height: 40px;
+  margin-top: 0;
+}
+
+#tabela-recados {
+  width: 95%;    
+  max-width: 100vw;  
+  position: absolute;
+  border-collapse: collapse;
+  text-indent: 10px;
+}
+
+#th-codigo{
+  width: 150px;
+}
+
+#th-descricao{
+  width:450px;
+}
+
+#th-detalhamento{
+  width: 600px;
+}
+
+.linha {
+  height: 35px; 
+  border-top: 0; 
+  border-bottom: 1px solid var(--cor1);
+  border-left: 0;
+  border-right: 0;
+  font-size: 0.9em;
+}
+
+.linha:hover{
+  background-color: var(--cor1);
+  color: var(--cor4);    
+}
+
+input.btn-registros {
+  width: 80px;
+  height: 25px;  
+  border-radius: 10px;  
+}
+
+input.btn-registros:hover {
+  cursor: pointer;
+}
+
+#linha-inicial{
+  text-align: center;
+  color: var(--cor1);
+}
+
+th {    
+  height: 38px;
+  color: var(--cor0);
+  background-color: var(--cor3);
+  border-left: 0;
+  border-right: 0;  
+  text-align: left;  
+  font-size: 1.1em; 
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+ @keyframes shadow-drop-2-center {
+  0% {
+    transform: translateZ(0);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+  50%{
+    transform: scale(0.90);
+  }
+  100% {
+    transform: translateZ(50px);
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+  }
+}

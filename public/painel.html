@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/2f97a8678b.js" crossorigin="anonymous"></script>
+
+    <title>Painel de Recados</title>
+</head>
+<body>
+    <body class="container m-0 p-0 imagem-fundo">
+        <div class="row vw-100">        
+            <div class="col-12 m-0 p-0 d-flex justify-content-center">
+                <h2 class="p-0 fs-3 my-5 titulo">SEJA BEM VINDO!</h2>
+            </div>
+        </div>  
+    <main>
+        <section class="painel">
+            <div class="painel-dados"> 
+                <div class="div-logout">
+                    <a id="link-logout" href="./index.html"> 
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    </a>
+                </div> 
+                                     
+                    <h2 id="titulo-pagina">MEUS RECADOS</h2>
+
+                    <form id="form-painel">
+                        <input type="text"  id="input-numero-id" placeholder="ID">                    
+                        <input type="text"  id="input-desc" placeholder="Descrição">
+                        <input type="text" id="input-det" placeholder="Detalhamento">
+                        <input type="submit" class="btn" id="btn-salvar" value="SALVAR">
+                    </form>
+            </div>
+
+            <div class="painel-recados">
+                <table id="tabela-recados">
+                    <thead>
+                        <tr>
+                            <th id="th-codigo">ID</th>
+                            <th id="th-descricao">Descrição</th>
+                            <th id="th-detalhamento">Detalhamento</th>
+                            <th id="th-acao">Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody> 
+                        <tr id="linha-inicial">
+                            <td colspan="4" class= "linha">Nenhum recado cadastrado.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>Criado por Samille B. Machado para 7ª Edição Starter Fullstack &copy; <a href="www.growdev.com.br">Growdev</a> - 2022</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="../public/js/index.js"></script>
+</body>
+</html>
