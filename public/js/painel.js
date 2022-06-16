@@ -210,6 +210,6 @@ function recarregaPagina() {
 }
 ;
 function redirecionaParaLogin() {
-    window.location.href = "../src/index.html";
+    window.location.href = "../index.html";
 }
 ;
