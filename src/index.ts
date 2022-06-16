@@ -8,7 +8,7 @@ let btnVoltarLogin = document.querySelector("#btn-voltar-login") as HTMLButtonEl
 let divPrincipalLogin = document.querySelector("#div-principal-login") as HTMLDivElement;
 let divPrincipalSignup = document.querySelector("#div-principal-signup") as HTMLDivElement;
 
-let usuarios : Usuario[] = JSON.parse(localStorage.getItem("usuarios") || "[]");
+let usuarios : Usuario[];
 
 interface Usuario {
     email: string,
@@ -101,6 +101,7 @@ function verificaCamposLogin(){
 
 function validaUsuarioLogin(){
 
+    usuarios = JSON.parse(localStorage.getItem("usuarios") || "[]");
     let usuarioExistente : boolean = usuarios.some((usuario) => usuario.email === inputEmailLogin.value);
     
     if (!usuarioExistente) {

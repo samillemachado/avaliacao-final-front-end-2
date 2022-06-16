@@ -7,7 +7,7 @@ let btnCriar = document.querySelector("#btn-criar");
 let btnVoltarLogin = document.querySelector("#btn-voltar-login");
 let divPrincipalLogin = document.querySelector("#div-principal-login");
 let divPrincipalSignup = document.querySelector("#div-principal-signup");
-let usuarios = JSON.parse(localStorage.getItem("usuarios") || "[]");
+let usuarios;
 // CADASTRO
 let formSignup = document.querySelector("#form-signup");
 let labelInputEmailSignup = document.querySelector("#label-input-email");
@@ -75,6 +75,7 @@ function verificaCamposLogin() {
     return retorno;
 }
 function validaUsuarioLogin() {
+    usuarios = JSON.parse(localStorage.getItem("usuarios") || "[]");
     let usuarioExistente = usuarios.some((usuario) => usuario.email === inputEmailLogin.value);
     if (!usuarioExistente) {
         mostrarAlertaIndex("Usuário não cadastrado! Primeiro crie uma conta.", "warning", espacoAlertaIndex);

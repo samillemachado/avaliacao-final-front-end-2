@@ -12,7 +12,7 @@ let btnEditar;
 let btnApagar;
 ;
 let edicao = false;
-let usuarioLogado = "";
+let usuarioLogado;
 let listaUsuarios = [];
 let indiceDoUsuarioLogado = 0;
 let recadosDoUsuarioLogado = [];
@@ -161,8 +161,8 @@ function salvarRecadosNoLocalStorage(listaRecados) {
 }
 ;
 function pegarDadosStorage() {
-    usuarioLogado = localStorage.getItem("usuario_logado") || "[]";
-    if (usuarioLogado === null) {
+    usuarioLogado = localStorage.getItem("usuario_logado") || "";
+    if (usuarioLogado.length === 0) {
         redirecionaParaLogin();
     }
     listaUsuarios = JSON.parse(localStorage.getItem("usuarios") || "[]");
@@ -177,7 +177,7 @@ function removerLinhaInicial() {
 ;
 function apagarRecado(id) {
     let indiceEncontrado = recadosDoUsuarioLogado.findIndex((recado) => recado.id === id);
-    let confirma = confirm(`Tem certeza que deseja remover o recado nº ${id}?`);
+    let confirma = confirm(`Tem certeza que deseja apagar o recado?`);
     if (confirma) {
         recadosDoUsuarioLogado.splice(indiceEncontrado, 1);
         salvarRecadosNoLocalStorage(recadosDoUsuarioLogado);

@@ -20,7 +20,7 @@ interface Recado {
 };
 
 let edicao : boolean = false;
-let usuarioLogado : string = "";
+let usuarioLogado : string;
 let listaUsuarios : Array<Usuario> = [];
 let indiceDoUsuarioLogado : number = 0;
 let recadosDoUsuarioLogado : Array<Recado> = [];
@@ -183,9 +183,9 @@ function salvarRecadosNoLocalStorage(listaRecados : Array<Recado>){
 };
 
 function pegarDadosStorage(){    
-    usuarioLogado = localStorage.getItem("usuario_logado") || "[]";
+    usuarioLogado = localStorage.getItem("usuario_logado") || "" ;
 
-    if(usuarioLogado === null) {
+    if(usuarioLogado.length === 0) {
         redirecionaParaLogin();
     }
 
@@ -202,7 +202,7 @@ function removerLinhaInicial(){
 function apagarRecado(id : number){
     let indiceEncontrado = recadosDoUsuarioLogado.findIndex((recado) => recado.id === id);
 
-    let confirma = confirm(`Tem certeza que deseja remover o recado nº ${id}?`);
+    let confirma = confirm(`Tem certeza que deseja apagar o recado?`);
     
     if(confirma){
         recadosDoUsuarioLogado.splice(indiceEncontrado, 1);
