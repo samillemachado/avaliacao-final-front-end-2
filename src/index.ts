@@ -122,7 +122,7 @@ function validaSenhaLogin(){
 }
 
 function redirecionaParaPaginaPainel() {
-    window.location.href = "../public/painel.html";
+    window.location.href = "./public/painel.html";
 }
 
 function salvarNoLocalStorage() {
