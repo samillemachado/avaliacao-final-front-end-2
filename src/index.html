@@ -16,7 +16,7 @@
         </div>
     </div>  
 
-    <main class="container m-0 mt-5 p-0 hide">
+    <main class="container m-0 mt-5 p-0">
         <!-- LOGIN -->
         <div class="row m-0 p-0 d-flex vw-100 justify-content-center my-auto" id="div-principal-login">          
             <div class="col-10 col-sm-6 m-0 p-0 box-login" >
@@ -46,35 +46,44 @@
         <!-- CADASTRO -->
         <div class="d-none row m-0 p-0 d-flex vw-100 justify-content-center my-auto" id="div-principal-signup">
             <div class="col-10 col-sm-6 m-0 p-0 box-signup">
+
                 <form class="m-5" id="form-signup"> 
                     <h2 class="fs-3 text-center titulo mb-5" id="texto-criar">CRIAR UMA CONTA</h2>
                     <div class="row">
+
                         <div class="col-12 p-0 pe-1 m-0">
                             <label for="signup-email" id="label-input-email" >e-mail:</label>
                             <input type="email" name="input-email" class="w-100 form-control input-signup" id="input-signup-email" placeholder="nome@email.com.br">
                         </div>
+
                         <div class="col-12 p-0 ps-1m-0">
                             <label for="signup-senha" id="label-input-senha">senha:</label>
                             <input type="password" name="signup-senha" class="w-100 form-control input-signup" id="input-signup-senha" placeholder="Senha12@">
                         </div>
+
                         <div class="col-12 p-0 ps-1m-0">
                             <label for="signup-senha" id="label-input-repete-senha">repete senha:</label>
                             <input type="password" name="signup-repete-senha" class="w-100 form-control input-signup" id="input-signup-repete-senha" placeholder="Senha12@">
                         </div>
+
                         <div class="col-12 d-flex justify-content-center p-0 m-0">
                             <button type="submit" class="btn py-2 my-2 btn-g w-100">CRIAR CONTA</button>
-                        </div>                    
+                        </div> 
+
                     </div> 
+
                     <div class="row">
                         <div class="col-12 mt-4 mb-1 d-flex justify-content-center">
                             <button class="titulo" id="btn-voltar-login">VOLTAR PARA LOGIN</button>
                         </div>
                     </div>
+
                 </form>          
             </div>
-            <div class="col-12 my-4 p-0 d-flex justify-content-center" id="espaco-alerta-index"></div>                     
+            <div class="col-12 my-4 p-0 d-flex justify-content-center" id="espaco-alerta-signup-index"></div>                     
         </div>
     </main>
+
     <footer>
         <p>Criado por Samille B. Machado para 7ª Edição Starter Fullstack &copy; <a href="www.growdev.com.br">Growdev</a> - 2022</p>
     </footer>

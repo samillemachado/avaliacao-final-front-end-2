@@ -22,15 +22,16 @@ let validRepeteSenhaSignup = false;
 let regSenha = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
 // ALERTAS
 let espacoAlertaIndex = document.getElementById('espaco-alerta-index');
+let espacoAlertaSignupIndex = document.getElementById('espaco-alerta-signup-index');
 let corpoAlertaIndex = document.createElement('div');
-function mostrarAlertaIndex(mensagem, tipo) {
+function mostrarAlertaIndex(mensagem, tipo, espaco) {
     corpoAlertaIndex.innerHTML = `
                         <div class="alert alert-${tipo} alert-dismissible fade show" role="alert">
                                 <div>${mensagem}</div>
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                         `;
-    espacoAlertaIndex.appendChild(corpoAlertaIndex);
+    espaco.appendChild(corpoAlertaIndex);
     setTimeout(() => { corpoAlertaIndex.innerHTML = ''; }, 3000);
 }
 ;
@@ -59,14 +60,16 @@ formSignup.addEventListener("submit", (e) => {
     e.preventDefault();
     if (verificaCampos()) {
         criarRegistroUsuario();
-        limparCampos();
+        formSignupHide();
+        formLoginShow();
+        limparCamposLogin();
     }
 });
 // FUNÇÕES
 function verificaCamposLogin() {
     let retorno = true;
     if (inputEmailLogin.value === "" || inputSenhaLogin.value === "") {
-        mostrarAlertaIndex("Você deve preencher todos os campos!", "warning");
+        mostrarAlertaIndex("Você deve preencher todos os campos!", "warning", espacoAlertaIndex);
         retorno = false;
     }
     return retorno;
@@ -74,7 +77,7 @@ function verificaCamposLogin() {
 function validaUsuarioLogin() {
     let usuarioExistente = usuarios.some((usuario) => usuario.email === inputEmailLogin.value);
     if (!usuarioExistente) {
-        mostrarAlertaIndex("Usuário não cadastrado! Primeiro crie uma conta.", "warning");
+        mostrarAlertaIndex("Usuário não cadastrado! Primeiro crie uma conta.", "warning", espacoAlertaIndex);
     }
     return usuarioExistente;
 }
@@ -82,12 +85,11 @@ function validaSenhaLogin() {
     let usuario = usuarios.find((usuario) => usuario.email === inputEmailLogin.value);
     let senhaCorreta = usuario ? usuario.senha === inputSenhaLogin.value : false;
     if (!senhaCorreta) {
-        mostrarAlertaIndex("Senha incorreta, tente novamente.", "danger");
+        mostrarAlertaIndex("Senha incorreta, tente novamente.", "danger", espacoAlertaIndex);
     }
     return senhaCorreta;
 }
 function redirecionaParaPaginaPainel() {
-    alert("Você logou!");
     window.location.href = "../public/painel.html";
 }
 function salvarNoLocalStorage() {
@@ -155,19 +157,19 @@ function verificaCampos() {
     let usuarioExistente = (JSON.parse(localStorage.getItem("usuarios") || "[]")
         .some((usuario) => usuario.email === JSON.stringify(inputEmailSignup.value)));
     if (inputEmailSignup.value === "" || inputSenhaSignup.value === "" || inputRepeteSenhaSignup.value === "") {
-        alert("Você deve preencher todos os campos!");
+        mostrarAlertaIndex("Você deve preencher todos os campos!", "warning", espacoAlertaSignupIndex);
         retorno = false;
     }
     else if (!validEmailSignup || !validSenhaSignup || !validRepeteSenhaSignup) {
-        alert("Você deve preencher todos os campos!");
+        mostrarAlertaIndex("Você deve preencher todos os campos!", "warning", espacoAlertaSignupIndex);
         retorno = false;
     }
     else if (usuarioExistente) {
-        alert("E-mail já cadastrado!");
+        mostrarAlertaIndex("E-mail já cadastrado!", "warning", espacoAlertaSignupIndex);
         retorno = false;
     }
     else {
-        alert("Cadastro efetuado com sucesso!");
+        mostrarAlertaIndex("Cadastro efetuado com sucesso!", "success", espacoAlertaSignupIndex);
     }
     return retorno;
 }
@@ -183,14 +185,9 @@ function criarRegistroUsuario() {
     };
     dadosStorage.push(user);
     window.localStorage.setItem("usuarios", JSON.stringify(dadosStorage));
-    // redirecionaPaginaInicial();
 }
-function limparCampos() {
-    inputEmailSignup.value = "";
-    inputSenhaSignup.value = "";
-    inputRepeteSenhaSignup.value = "";
+function limparCamposLogin() {
+    inputEmailLogin.value = "";
+    inputSenhaLogin.value = "";
 }
 ;
-// function redirecionaPaginaInicial() {
-//     window.location.href = "./index.html";
-// }
