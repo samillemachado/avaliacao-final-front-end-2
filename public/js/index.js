@@ -90,7 +90,7 @@ function validaSenhaLogin() {
     return senhaCorreta;
 }
 function redirecionaParaPaginaPainel() {
-    window.location.href = "./public/painel.html";
+    window.location.href = "../public/painel.html";
 }
 function salvarNoLocalStorage() {
     localStorage.setItem("usuario_logado", inputEmailLogin.value);
